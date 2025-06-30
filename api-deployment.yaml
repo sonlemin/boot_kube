@@ -27,7 +27,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: synergychat-api-configmap
-                  key: /persist/db.json
+                  key: API_DB_FILEPATH
           volumeMounts:
             - name: synergychat-api-volume
               mountPath: /persist
