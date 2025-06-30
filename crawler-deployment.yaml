@@ -30,7 +30,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: synergychat-crawler-configmap
-                  key: CRAWLER_PORT2
+                  key: CRAWLER_PORT_2
             - name: CRAWLER_KEYWORDS
               valueFrom:
                 configMapKeyRef:
@@ -41,7 +41,7 @@ spec:
                 configMapKeyRef:
                   name: synergychat-crawler-configmap
                   key: CRAWLER_DB_PATH
-            volumeMounts:
+            - volumeMounts:
               - name: cache-volume
                 mountPath: /cache
         - name: synergychat-crawler-3
@@ -51,24 +51,20 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: synergychat-crawler-configmap
-                  key: CRAWLER_PORT3
+                  key: CRAWLER_PORT_3
             - name: CRAWLER_KEYWORDS
               valueFrom:
                 configMapKeyRef:
                   name: synergychat-crawler-configmap
                   key: CRAWLER_KEYWORDS
             - name: CRAWLER_DB_PATH
-              valueFrom:
-                configMapKeyRef:
-                  name: synergychat-crawler-configmap
-                  key: CRAWLER_DB_PATH
+ 40               valueFrom:
+ 41                 configMapKeyRef:
+ 42                   name: synergychat-crawler-configmap
+ 43                   key: CRAWLER_DB_PATH
             volumeMounts:
               - name: cache-volume
                 mountPath: /cache
-
-          volumeMounts:
+          volumes:     
             - name: cache-volume
-              mountPath: /cache
-        volumes:     
-         - name: cache-volume
-           emptyDir: {}
+              emptyDir: {}
