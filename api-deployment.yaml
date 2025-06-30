@@ -28,6 +28,11 @@ spec:
                 configMapKeyRef:
                   name: synergychat-api-configmap
                   key: API_DB_FILEPATH
+            - name: CRAWLER_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: synergychat-api-configmap
+                  key: CRAWLER_BASE_URL
           volumeMounts:
             - name: synergychat-api-volume
               mountPath: /persist
@@ -35,4 +40,3 @@ spec:
         - name: synergychat-api-volume
           persistentVolumeClaim:
             claimName: synergychat-api-pvc
-  CRAWLER_BASE_URL: http://crawler-service.crawler.svc.cluster.local
