@@ -20,3 +20,9 @@ spec:
           envFrom:
             - configMapRef:
                 name: synergychat-crawler-configmap
+          volumeMounts:
+            - name: cache-volume
+              mountPath: /cache
+       volumes:
+         - name: cache-volume
+           emptyDir: {}
